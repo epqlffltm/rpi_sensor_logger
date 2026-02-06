@@ -49,15 +49,25 @@ int main(void)
     uint8_t data[14]; // 가속도(6) + 온도(2) + 자이로(6) = 14바이트
     
     // 읽을 레지스터 위치 지정
-    write(file, &reg, 1);
+    if(write(file, &reg, 1) != 1)
+    {
+      perror("Write register failed");
+    }
+
+    //센서가 응답을 준비할 아주 짧은 시간
+    usleep(1000);
+
     // 데이터 읽기
-    read(file, data, 14);
+    if(read(file, data, 14) != 14)
+    {
+      perror("read data failed");
+    }
 
     // 2바이트씩 합쳐서 16비트 정수로 변환 (상위비트 << 8 | 하위비트)
-    ax = (data[0] << 8) | data[1];
-    ay = (data[2] << 8) | data[3];
-    az = (data[4] << 8) | data[5];
-    temp = (data[6] << 8) | data[7];
+    ax = (int16_t)((data[0] << 8) | data[1]);
+    ay = (int16_t)((data[2] << 8) | data[3]);
+    az = (int16_t)((data[4] << 8) | data[5]);
+    temp = (int16_t)((data[6] << 8) | data[7]);
 
     // 온도 공식: (데이터 / 340) + 36.53
     float celsius = (float)temp / 340.0 + 36.53;
