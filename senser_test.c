@@ -34,13 +34,13 @@ int main(void)
     exit(1);
   }
 
-  if(gpiod_line_request_output( line,"sensor-tesr") < 0)//출력 모드
+  if(gpiod_line_request_output( line,"sensor-tesr",0) < 0)//출력 모드
   {
     perror("input error");
     exit(1);
   }
 
-  printf("senser 감지");
+  printf("senser 감지\n");
 
   while(true)
   {
