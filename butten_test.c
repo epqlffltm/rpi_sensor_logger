@@ -30,7 +30,7 @@ int main(void)
     button_line = gpiod_chip_get_line(chip, button_pin);
     gpiod_line_request_input(button_line, "button-in");
 
-    printf("버튼 테스트 시작... (Ctrl+C 종료)\n");
+    printf("test start\n");
 
     // 4. 무한 루프
     while (true) {
