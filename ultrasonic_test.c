@@ -58,9 +58,11 @@ int main(void)
 
     // 3. 에코 신호 대기 (타임아웃 추가)
     int timeout_count = 0;
-    while(gpiod_line_get_value(echo) == 0) {
+    while(gpiod_line_get_value(echo) == 0) 
+    {
       usleep(1);
-      if(++timeout_count > 10000) { // 10ms 타임아웃
+      if(++timeout_count > 10000) 
+      { // 10ms 타임아웃
         printf("Error: Echo timeout (waiting for HIGH)\n");
         continue; // 다음 측정으로
       }
@@ -69,9 +71,11 @@ int main(void)
     
     // 4. 에코 종료 대기 (타임아웃 추가)
     timeout_count = 0;
-    while(gpiod_line_get_value(echo) == 1) {
+    while(gpiod_line_get_value(echo) == 1) 
+    {
       usleep(1);
-      if(++timeout_count > 30000) { // 30ms 타임아웃 (최대 측정 거리 약 5m)
+      if(++timeout_count > 30000) 
+      { // 30ms 타임아웃 (최대 측정 거리 약 5m)
         printf("Error: Echo timeout (waiting for LOW)\n");
         break;
       }
@@ -88,6 +92,7 @@ int main(void)
     } else {
       printf("측정 범위 초과: %.2f cm\n", distance);
     }
+    usleep(1000000);
   }
   
   gpiod_line_release(trig);
