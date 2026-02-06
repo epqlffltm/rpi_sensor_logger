@@ -1,0 +1,19 @@
+#.gitignore
+
+#1.모든 파일 무시
+*
+
+#2.폴더 구조는 유지함
+!*/
+
+#3.vscode는 무시
+!.vscode
+
+#4.확장자를 가진 파일만 추척
+!*.c
+!*.cpp
+!*.h
+!*.hpp
+!Makefile
+!README.md
+!.gitignore
