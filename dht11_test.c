@@ -30,7 +30,7 @@ int main(void)
   while (1) 
   {
     read_dht11(line);
-    sleep(2);안정화
+    sleep(2);//안정화
   }
 
   return 0;
