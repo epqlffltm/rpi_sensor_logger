@@ -11,7 +11,7 @@ dht11온습도 센서
 #include <time.h>
 
 #define MAX_TIMINGS 85
-#define DHT_PIN 4
+#define DHT_PIN 21
 
 int data[5] = { 0, 0, 0, 0, 0 };
 
