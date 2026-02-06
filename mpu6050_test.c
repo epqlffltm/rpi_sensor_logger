@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.c>
+#include <fcntl.h>
 #include <unistd.h>
 #include <stdint.h>
 #include <sys/ioctl.h>
@@ -45,7 +45,7 @@ int main(void)
   int count = 0;
   while (count < 20) // 테스트용으로 20번만 출력
   {
-    uint8_t reg = ACCEL_XOUT_H;
+    uint8_t reg = accel;
     uint8_t data[14]; // 가속도(6) + 온도(2) + 자이로(6) = 14바이트
     
     // 읽을 레지스터 위치 지정
