@@ -1,3 +1,8 @@
+/*
+2026-02-06
+버튼으로 led제어하기
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
