@@ -141,7 +141,7 @@ int main(void)
 
         // 거리 계산
         double time_sec = (end.tv_sec - start.tv_sec) + 
-                          (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+                        (end.tv_nsec - start.tv_nsec) / 1000000000.0;
         double distance = (time_sec * 34300.0) / 2.0;
 
         // 유효 범위 체크 (HC-SR04 기준: 2cm ~ 400cm)
