@@ -15,7 +15,7 @@
 // 전역 변수 (시그널 핸들러용)
 volatile bool running = true;
 
-void check_error(int is_error, int error_code);
+void check_error(int is_error, int *error_code);
 void signal_handler(int sig);
 
 int main(void)
@@ -178,11 +178,11 @@ int main(void)
     return 0;
 }
 
-void check_error(int is_error, int error_code)
+void check_error(int is_error, int *error_code)
 {
     if (is_error)
     {
-        switch(error_code)
+        switch(*error_code)
         {
             case 0: perror("Error: DB Failed"); break;
             case 1: perror("Error: Chip Open Failed"); break;
