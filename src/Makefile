@@ -1,7 +1,7 @@
 #makefile
 CC = gcc
 CFLAGS = -W -Wall
-LDLIBS = -lgpiod
+LDLIBS = -lgpiod -lsqlite3
 
 # 1. 현재 디렉터리의 모든 .c 파일을 찾음 (예: add.c input.c)
 SRCS = $(wildcard *.c)
