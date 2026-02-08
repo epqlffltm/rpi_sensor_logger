@@ -462,15 +462,15 @@ void lcd_write_nibble(unsigned char data, unsigned char mode)
   unsigned char byte = data | mode | LCD_BACKLIGHT;
     
   // Enable 신호로 데이터 전송
-  write(i2c_fd, &byte, 1);
+  (void)write(i2c_fd, &byte, 1);
   usleep(1);
   
   byte |= LCD_ENABLE;
-  write(i2c_fd, &byte, 1);
+  (void)write(i2c_fd, &byte, 1);
   usleep(1);
     
   byte &= ~LCD_ENABLE;
-  write(i2c_fd, &byte, 1);
+  (void)write(i2c_fd, &byte, 1);
   usleep(50);
 }
 
